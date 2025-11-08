@@ -5,25 +5,24 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Learning02 World!");
-        Console.Write("What is your grade percentage? ");
-        string answer = Console.ReadLine();
-        int percent = int.Parse(answer);
-
+        Console.Write("What is your score? ");
+        string score = Console.ReadLine();
+        int number = int.Parse(score);
         string letter = "";
-
-        if (percent >= 90)
+        string sign = "";
+        if (number >= 90)
         {
             letter = "A";
         }
-        else if (percent >= 80)
+        else if (number >= 80)
         {
             letter = "B";
         }
-        else if (percent >= 70)
+        else if (number >= 70)
         {
             letter = "C";
         }
-        else if (percent >= 60)
+        else if (number >= 60)
         {
             letter = "D";
         }
@@ -31,35 +30,38 @@ class Program
         {
             letter = "F";
         }
-
-        
-
-        if (percent >= 70)
+        if (number >= 70)
         {
-            Console.WriteLine("You passed!");
+            Console.Write("Congratulations on passing the course!");
         }
         else
         {
-            Console.WriteLine("Better luck next time!");
+            Console.Write("Keep up the good work, you'll pass next time!!");
         }
-
-        int lastDigit = percent % 10; 
-        if (letter != "A" || letter != "F" )
+        int lastNumber = number % 10;
+        if (lastNumber >= 7)
         {
-            if (lastDigit >= 7)
+            if (letter != "A" || letter != "F")
             {
-                Console.WriteLine($"Your grade is: {letter}+");
-            }
-            else if (lastDigit < 3)
-            {
-                Console.WriteLine($"Your grade is: {letter}- ");
+                sign = "+";
             }
             else
             {
-            Console.WriteLine($"Your grade is: {letter}");;
+                sign = " ";
             }
-
         }
+        else if (lastNumber < 3)
+        {
+            if (letter != "F")
+            {
+                sign = "-";
+            }
+            else
+            {
+                sign = " ";
+            }
+        }
+        Console.WriteLine($"Your grade is: {letter}{sign}"); 
     
     }
 }
